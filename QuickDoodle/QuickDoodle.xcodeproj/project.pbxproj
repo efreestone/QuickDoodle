@@ -14,6 +14,7 @@
 		B857D45F1C0A50A5002366C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B857D45D1C0A50A5002366C4 /* LaunchScreen.storyboard */; };
 		B857D46A1C0A50A5002366C4 /* QuickDoodleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4691C0A50A5002366C4 /* QuickDoodleTests.swift */; };
 		B857D4751C0A50A6002366C4 /* QuickDoodleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4741C0A50A6002366C4 /* QuickDoodleUITests.swift */; };
+		B857D4831C0A52E5002366C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4821C0A52E5002366C4 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B857D4701C0A50A6002366C4 /* QuickDoodleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickDoodleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B857D4741C0A50A6002366C4 /* QuickDoodleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickDoodleUITests.swift; sourceTree = "<group>"; };
 		B857D4761C0A50A6002366C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B857D4821C0A52E5002366C4 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				B857D4541C0A50A5002366C4 /* AppDelegate.swift */,
 				B857D4561C0A50A5002366C4 /* ViewController.swift */,
+				B857D4821C0A52E5002366C4 /* SettingsViewController.swift */,
 				B857D4581C0A50A5002366C4 /* Main.storyboard */,
 				B857D45B1C0A50A5002366C4 /* Assets.xcassets */,
 				B857D45D1C0A50A5002366C4 /* LaunchScreen.storyboard */,
@@ -257,6 +260,7 @@
 			files = (
 				B857D4571C0A50A5002366C4 /* ViewController.swift in Sources */,
 				B857D4551C0A50A5002366C4 /* AppDelegate.swift in Sources */,
+				B857D4831C0A52E5002366C4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuickDoodle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elijahfreestone.QuickDoodle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QuickDoodle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.elijahfreestone.QuickDoodle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
