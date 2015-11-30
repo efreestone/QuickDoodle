@@ -13,13 +13,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var tempImageView: UIImageView!
     
-    //
+    //Create and set vars for line
     var lastPoint = CGPoint.zero
     var redFloat: CGFloat = 0.0
     var greenFloat: CGFloat = 0.0
     var blueFloat: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
-    var opacity: CGFloat = 1.0
+    var lineWidth: CGFloat = 10.0
+    var lineOpacity: CGFloat = 1.0
     var hasMoved = false
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         //3
         CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, brushWidth)
+        CGContextSetLineWidth(context, lineWidth)
         CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         
         //5
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        tempImageView.alpha = opacity
+        tempImageView.alpha = lineOpacity 
         UIGraphicsEndImageContext()
     }
     
