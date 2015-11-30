@@ -34,12 +34,27 @@ class ViewController: UIViewController {
     
     //Start of touch
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //Set has moved to false first
         hasMoved = false
         if let touch = touches.first as UITouch! {
             lastPoint = touch.locationInView(self.view)
         }
     }
     
+    //Touch has moved, draw line
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        //6
+        hasMoved = true
+        if let touch = touches.first as UITouch! {
+            let currentPoint = touch.locationInView(view)
+            drawLineFrom(lastPoint, toPoint: currentPoint)
+            
+            //7
+            lastPoint = currentPoint
+        }
+    }
+    
+    //Draw line from one point to the other
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         //1
         UIGraphicsBeginImageContext(view.frame.size)
@@ -65,19 +80,7 @@ class ViewController: UIViewController {
         UIGraphicsEndImageContext()
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        //6
-        hasMoved = true
-        if let touch = touches.first as UITouch! {
-            let currentPoint = touch.locationInView(view)
-            drawLineFrom(lastPoint, toPoint: currentPoint)
-            
-            //7
-            lastPoint = currentPoint
-        }
-    }
-    
-    // MARK: - Actions
+    //MARK: - IBActions
     
     @IBAction func reset(sender: AnyObject) {
     }
