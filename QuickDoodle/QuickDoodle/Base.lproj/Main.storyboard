@@ -279,13 +279,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opacity" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LtI-b2-k2k">
-                                <rect key="frame" x="20" y="212" width="64" height="21"/>
+                                <rect key="frame" x="20" y="232" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tg-kR-MBX">
-                                <rect key="frame" x="545" y="55" width="35" height="21"/>
+                                <rect key="frame" x="545" y="75" width="35" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="pgR-UV-tdf"/>
                                     <constraint firstAttribute="height" constant="21" id="zDm-gm-ibd"/>
@@ -295,19 +295,22 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fez-p2-2tM">
-                                <rect key="frame" x="545" y="212" width="35" height="21"/>
+                                <rect key="frame" x="545" y="232" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9gM-03-12U">
-                                <rect key="frame" x="90" y="203" width="449" height="31"/>
+                                <rect key="frame" x="90" y="223" width="449" height="31"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="LFy-TC-tvP" eventType="valueChanged" id="Ovk-fh-xno"/>
                                 </connections>
                             </slider>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xds-Ud-ruA">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="bhd-nu-SPE"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nvi-4g-qQ2"/>
                                     <barButtonItem title="Close" id="vEd-AD-7iB">
@@ -318,69 +321,69 @@
                                 </items>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wG5-NG-XdT">
-                                <rect key="frame" x="480" y="92" width="100" height="100"/>
+                                <rect key="frame" x="480" y="112" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="H0w-x3-lEL"/>
                                     <constraint firstAttribute="height" constant="100" id="d3f-TD-2i4"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wf6-BX-6vq">
-                                <rect key="frame" x="480" y="241" width="100" height="100"/>
+                                <rect key="frame" x="480" y="261" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="LfI-RT-1IA"/>
                                     <constraint firstAttribute="width" constant="100" id="NRq-Dx-Gce"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RGB" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9y-RE-r24">
-                                <rect key="frame" x="20" y="361" width="49" height="21"/>
+                                <rect key="frame" x="20" y="381" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="sHG-wb-pO4">
-                                <rect key="frame" x="75" y="357" width="445" height="31"/>
+                                <rect key="frame" x="75" y="377" width="445" height="31"/>
                                 <connections>
                                     <action selector="colorChanged:" destination="LFy-TC-tvP" eventType="valueChanged" id="W1K-vX-itF"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="3xs-hQ-Gau">
-                                <rect key="frame" x="75" y="395" width="445" height="31"/>
+                                <rect key="frame" x="75" y="415" width="445" height="31"/>
                                 <connections>
                                     <action selector="colorChanged:" destination="LFy-TC-tvP" eventType="valueChanged" id="Id8-Zr-Nvx"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="BlR-HB-14q">
-                                <rect key="frame" x="75" y="433" width="445" height="31"/>
+                                <rect key="frame" x="75" y="453" width="445" height="31"/>
                                 <connections>
                                     <action selector="colorChanged:" destination="LFy-TC-tvP" eventType="valueChanged" id="BKv-Av-5JK"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R: XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aA6-s3-Ayn">
-                                <rect key="frame" x="526" y="361" width="54" height="21"/>
+                                <rect key="frame" x="526" y="381" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B: XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPl-Z0-VQz">
-                                <rect key="frame" x="526" y="399" width="54" height="21"/>
+                                <rect key="frame" x="526" y="419" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B: XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tm1-Gb-GZN">
-                                <rect key="frame" x="526" y="437" width="54" height="21"/>
+                                <rect key="frame" x="526" y="457" width="54" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="1" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="ULG-Fi-1Uz">
-                                <rect key="frame" x="90" y="54" width="449" height="31"/>
+                                <rect key="frame" x="90" y="74" width="449" height="31"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="LFy-TC-tvP" eventType="valueChanged" id="w27-6J-fCC"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brush" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJF-BG-ht5">
-                                <rect key="frame" x="20" y="59" width="64" height="21"/>
+                                <rect key="frame" x="20" y="79" width="64" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
