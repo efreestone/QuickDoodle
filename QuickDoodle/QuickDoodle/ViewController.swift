@@ -113,13 +113,15 @@ class ViewController: UIViewController {
     
     //MARK: - IBActions
     
+    //Reset touched, clear image
     @IBAction func reset(sender: AnyObject) {
+        mainImageView.image = nil
     }
     
     @IBAction func share(sender: AnyObject) {
     }
     
-    //Set line RGB color when selected
+    //Color selected, set line RGB
     @IBAction func pencilPressed(sender: AnyObject) {
         //Get index of color selected
         var colorIndex = sender.tag ?? 0
