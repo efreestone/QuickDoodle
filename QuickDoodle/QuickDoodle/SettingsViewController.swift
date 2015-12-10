@@ -27,6 +27,9 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var labelGreen: UILabel!
     @IBOutlet weak var labelBlue: UILabel!
     
+    var brush: CGFloat = 10.0
+    var opacity: CGFloat = 1.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +49,15 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
+        if sender == sliderBrush {
+            brush = CGFloat(sender.value)
+            labelBrush.text = NSString(format: "%.1f", brush.native) as String
+        } else {
+            opacity = CGFloat(sender.value)
+            labelOpacity.text = NSString(format: "%.2f", opacity.native) as String
+        }
+        
+        //drawPreview()
     }
     
     /*
