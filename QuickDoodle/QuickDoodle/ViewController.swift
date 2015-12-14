@@ -8,6 +8,14 @@
 
 import UIKit
 
+//Conform to Settings Delegate to set line width and opacity
+extension ViewController: SettingsViewControllerDelegate {
+    func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
+        self.lineWidthFloat = settingsViewController.lineWidthFloat
+        self.lineOpacityFloat = settingsViewController.lineOpacityFloat
+    }
+}
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
@@ -18,8 +26,8 @@ class ViewController: UIViewController {
     var redFloat: CGFloat = 0.0
     var greenFloat: CGFloat = 0.0
     var blueFloat: CGFloat = 0.0
-    var lineWidth: CGFloat = 10.0
-    var lineOpacity: CGFloat = 1.0
+    var lineWidthFloat: CGFloat = 10.0
+    var lineOpacityFloat: CGFloat = 1.0
     var hasMoved = false
     
     override func viewDidLoad() {
@@ -34,18 +42,30 @@ class ViewController: UIViewController {
     
     //Define RGB Colors
     let rgbColorsArray: [(CGFloat, CGFloat, CGFloat)] = [
+        //Black
         (0, 0, 0),
+        //Gray
         (105.0/255.0, 105.0/255.0, 105.0/255.0),
+        //Red
         (1.0, 0, 0),
+        //Blue
         (0, 0, 1.0),
+        //Light Blue
         (51.0/255.0, 204.0/255.0, 1.0),
+        //Green
         (102.0/255.0, 204.0/255.0, 0),
+        //Yellow-green
         (102.0/255.0, 1.0, 0),
+        //Brown
         (160.0/255.0, 82.0/255.0, 45.0/255.0),
+        //Orange
         (1.0, 102.0/255.0, 0),
+        //Yellow
         (1.0, 1.0, 0),
+        //White (eraser)
         (1.0, 1.0, 1.0)
     ]
+    
     //Start of touch
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //Set has moved to false first
@@ -61,7 +81,7 @@ class ViewController: UIViewController {
         hasMoved = true
         if let touch = touches.first {
             let currentPoint = touch.locationInView(view)
-            drawLineFrom(lastPoint, toPoint: currentPoint)
+            drawLineFromPoint(lastPoint, toPoint: currentPoint)
             
             //Update lastPoint with current postion
             lastPoint = currentPoint
@@ -73,13 +93,13 @@ class ViewController: UIViewController {
         //Check if touch is in progress
         if !hasMoved {
             //User only tapped, draw single point
-            drawLineFrom(lastPoint, toPoint: lastPoint)
+            drawLineFromPoint(lastPoint, toPoint: lastPoint)
         }
         
         //Merge tempImageView into mainImageView
         UIGraphicsBeginImageContext(mainImageView.frame.size)
         mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: 1.0)
-        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: lineOpacity)
+        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height), blendMode: CGBlendMode.Normal, alpha: lineOpacityFloat)
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         
         //End context and nil out temp image
@@ -88,18 +108,18 @@ class ViewController: UIViewController {
     }
     
     //Draw line from one point to the other
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+    func drawLineFromPoint(startPoint: CGPoint, toPoint: CGPoint) {
         //Get current context and start drawing line in tempImageView
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
         tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
-        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
+        CGContextMoveToPoint(context, startPoint.x, startPoint.y)
         CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
         
         //Set drawing parameters
         CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, lineWidth)
+        CGContextSetLineWidth(context, lineWidthFloat)
         CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         //Draw path
@@ -107,7 +127,7 @@ class ViewController: UIViewController {
         
         //Wrap up context and render line into tempImageView
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        tempImageView.alpha = lineOpacity 
+        tempImageView.alpha = lineOpacityFloat
         UIGraphicsEndImageContext()
     }
     
@@ -115,6 +135,8 @@ class ViewController: UIViewController {
     
     //Reset touched, clear image
     @IBAction func reset(sender: AnyObject) {
+/* ====== TODO - add confrimation dialog ====== */
+        //Clear screen
         mainImageView.image = nil
     }
     
@@ -125,6 +147,7 @@ class ViewController: UIViewController {
     @IBAction func pencilPressed(sender: AnyObject) {
         //Get index of color selected
         var colorIndex = sender.tag ?? 0
+        //Set to black if colorIndex is out of range of colors available
         if colorIndex < 0 || colorIndex >= rgbColorsArray.count {
             colorIndex = 0
         }
@@ -132,10 +155,17 @@ class ViewController: UIViewController {
         //Set RGB properties
         (redFloat, greenFloat, blueFloat) = rgbColorsArray[colorIndex]
         
-        //Set eraser, this is actually white
+        //Set eraser, this is actually white with overridden opacity
         if colorIndex == rgbColorsArray.count - 1 {
-            lineOpacity = 1.0
+            lineOpacityFloat = 1.0
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let settingsViewController = segue.destinationViewController as! SettingsViewController
+        settingsViewController.delegate = self
+        settingsViewController.lineWidthFloat = lineWidthFloat
+        settingsViewController.lineOpacityFloat = lineOpacityFloat
     }
 }
 

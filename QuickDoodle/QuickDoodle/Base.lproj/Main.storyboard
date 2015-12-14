@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -414,13 +413,11 @@
                             <constraint firstItem="3xs-hQ-Gau" firstAttribute="width" secondItem="BlR-HB-14q" secondAttribute="width" id="QPT-6e-scL"/>
                             <constraint firstItem="3xs-hQ-Gau" firstAttribute="width" secondItem="sHG-wb-pO4" secondAttribute="width" id="QSk-hO-eIy"/>
                             <constraint firstAttribute="trailing" secondItem="2tg-kR-MBX" secondAttribute="trailing" constant="20" symbolic="YES" id="QVO-mL-AZt"/>
-                            <constraint firstItem="xds-Ud-ruA" firstAttribute="leading" secondItem="3bm-Do-1fP" secondAttribute="leadingMargin" constant="-20" id="Qd7-L1-gZe"/>
                             <constraint firstAttribute="trailing" secondItem="wG5-NG-XdT" secondAttribute="trailing" constant="20" symbolic="YES" id="RK2-oM-oSK"/>
                             <constraint firstItem="xds-Ud-ruA" firstAttribute="leading" secondItem="3bm-Do-1fP" secondAttribute="leading" id="UVi-5h-K9H"/>
                             <constraint firstItem="ULG-Fi-1Uz" firstAttribute="top" secondItem="xds-Ud-ruA" secondAttribute="bottom" constant="10" id="VXQ-H4-n9W"/>
                             <constraint firstItem="3xs-hQ-Gau" firstAttribute="top" secondItem="sHG-wb-pO4" secondAttribute="bottom" constant="8" symbolic="YES" id="XNi-rb-K7E"/>
                             <constraint firstAttribute="trailing" secondItem="pPl-Z0-VQz" secondAttribute="trailing" constant="20" symbolic="YES" id="b5N-EY-vdm"/>
-                            <constraint firstItem="xds-Ud-ruA" firstAttribute="leading" secondItem="3bm-Do-1fP" secondAttribute="leadingMargin" constant="-20" id="dMe-zJ-uV9"/>
                             <constraint firstItem="pPl-Z0-VQz" firstAttribute="leading" secondItem="3xs-hQ-Gau" secondAttribute="trailing" constant="8" symbolic="YES" id="daP-OF-Sh2"/>
                             <constraint firstItem="9gM-03-12U" firstAttribute="leading" secondItem="LtI-b2-k2k" secondAttribute="trailing" constant="8" symbolic="YES" id="dnv-my-ceT"/>
                             <constraint firstItem="g9y-RE-r24" firstAttribute="trailing" secondItem="LtI-b2-k2k" secondAttribute="trailing" constant="-15" id="eyG-fa-f5o"/>
@@ -452,18 +449,18 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
-                        <outlet property="imageViewBrush" destination="wG5-NG-XdT" id="ypI-Ni-nvq"/>
-                        <outlet property="imageViewOpacity" destination="wf6-BX-6vq" id="PAm-Yc-LhH"/>
-                        <outlet property="labelBlue" destination="Tm1-Gb-GZN" id="9DL-mi-bk8"/>
-                        <outlet property="labelBrush" destination="2tg-kR-MBX" id="TXX-hy-0Ec"/>
-                        <outlet property="labelGreen" destination="pPl-Z0-VQz" id="IG1-5Z-Iom"/>
-                        <outlet property="labelOpacity" destination="Fez-p2-2tM" id="irK-L4-U7R"/>
-                        <outlet property="labelRed" destination="aA6-s3-Ayn" id="ey3-qy-cnp"/>
-                        <outlet property="sliderBlue" destination="BlR-HB-14q" id="CW8-Mf-vL0"/>
-                        <outlet property="sliderBrush" destination="ULG-Fi-1Uz" id="FmS-5l-T6I"/>
-                        <outlet property="sliderGreen" destination="3xs-hQ-Gau" id="BTf-ze-4WH"/>
-                        <outlet property="sliderOpacity" destination="9gM-03-12U" id="ReQ-q5-qzh"/>
-                        <outlet property="sliderRed" destination="sHG-wb-pO4" id="AkX-sg-Dqo"/>
+                        <outlet property="blueLabel" destination="Tm1-Gb-GZN" id="WZm-4d-e57"/>
+                        <outlet property="blueSlider" destination="BlR-HB-14q" id="1ME-he-YCp"/>
+                        <outlet property="greenLabel" destination="pPl-Z0-VQz" id="Enl-Lx-OWR"/>
+                        <outlet property="greenSlider" destination="3xs-hQ-Gau" id="iyr-k9-VFQ"/>
+                        <outlet property="lineOpacityImageView" destination="wf6-BX-6vq" id="0Yk-9z-zqw"/>
+                        <outlet property="lineOpacityLabel" destination="Fez-p2-2tM" id="jQ7-Yd-R9p"/>
+                        <outlet property="lineOpacitySlider" destination="9gM-03-12U" id="mmQ-wj-7Dl"/>
+                        <outlet property="lineWidthImageView" destination="wG5-NG-XdT" id="nui-aX-9qA"/>
+                        <outlet property="lineWidthLabel" destination="2tg-kR-MBX" id="zS1-SB-Omo"/>
+                        <outlet property="lineWidthSlider" destination="ULG-Fi-1Uz" id="hX8-G3-VyD"/>
+                        <outlet property="redLabel" destination="aA6-s3-Ayn" id="juH-ye-Qtn"/>
+                        <outlet property="redSlider" destination="sHG-wb-pO4" id="obc-cR-ABz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxX-qa-ZQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
