@@ -14,7 +14,7 @@
 		B857D45F1C0A50A5002366C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B857D45D1C0A50A5002366C4 /* LaunchScreen.storyboard */; };
 		B857D46A1C0A50A5002366C4 /* QuickDoodleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4691C0A50A5002366C4 /* QuickDoodleTests.swift */; };
 		B857D4751C0A50A6002366C4 /* QuickDoodleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4741C0A50A6002366C4 /* QuickDoodleUITests.swift */; };
-		B857D4831C0A52E5002366C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4821C0A52E5002366C4 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B857D4831C0A52E5002366C4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B857D4821C0A52E5002366C4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -489,6 +489,7 @@
 				B857D47B1C0A50A6002366C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B857D47C1C0A50A6002366C4 /* Build configuration list for PBXNativeTarget "QuickDoodleTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +498,7 @@
 				B857D47E1C0A50A6002366C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B857D47F1C0A50A6002366C4 /* Build configuration list for PBXNativeTarget "QuickDoodleUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +507,7 @@
 				B857D4811C0A50A6002366C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
