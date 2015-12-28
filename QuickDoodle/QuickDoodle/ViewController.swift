@@ -11,8 +11,14 @@ import UIKit
 //Conform to Settings Delegate to set line width and opacity
 extension ViewController: SettingsViewControllerDelegate {
     func settingsViewControllerFinished(settingsViewController: SettingsViewController) {
+        //Set line width and opacity
         self.lineWidthFloat = settingsViewController.lineWidthFloat
         self.lineOpacityFloat = settingsViewController.lineOpacityFloat
+        
+        //Set RGB color
+        self.redFloat = settingsViewController.redFloat
+        self.greenFloat = settingsViewController.greenFloat
+        self.blueFloat = settingsViewController.blueFloat
     }
 }
 
@@ -53,7 +59,7 @@ class ViewController: UIViewController {
         //Light Blue
         (51.0/255.0, 204.0/255.0, 1.0),
         //Green
-        (102.0/255.0, 204.0/255.0, 0),
+        (0, 150.0/255.0, 0),
         //Yellow-green
         (102.0/255.0, 1.0, 0),
         //Brown
@@ -135,7 +141,7 @@ class ViewController: UIViewController {
     
     //Reset touched, clear image
     @IBAction func reset(sender: AnyObject) {
-/* ====== TODO - add confrimation dialog ====== */
+/* ====== TODO - add confirmation dialog ====== */
         //Clear screen
         mainImageView.image = nil
     }
@@ -166,6 +172,9 @@ class ViewController: UIViewController {
         settingsViewController.delegate = self
         settingsViewController.lineWidthFloat = lineWidthFloat
         settingsViewController.lineOpacityFloat = lineOpacityFloat
+        settingsViewController.redFloat = redFloat
+        settingsViewController.greenFloat = greenFloat
+        settingsViewController.blueFloat = blueFloat
     }
 }
 
