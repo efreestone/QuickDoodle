@@ -81,7 +81,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="28" id="be4-ba-j4e"/>
                                     <constraint firstAttribute="width" constant="29" id="cEr-jz-lB7"/>
                                 </constraints>
-                                <state key="normal" image="Blue">
+                                <state key="normal" image="DarkOrange">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -99,7 +99,7 @@
                                     <constraint firstAttribute="width" constant="29" id="PF4-3k-sfP"/>
                                     <constraint firstAttribute="height" constant="91" id="fYu-V7-ACa"/>
                                 </constraints>
-                                <state key="normal" image="LightBlue">
+                                <state key="normal" image="Yellow">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -113,7 +113,7 @@
                                     <constraint firstAttribute="width" constant="29" id="Meg-b7-5V3"/>
                                     <constraint firstAttribute="height" constant="91" id="v62-3E-kdT"/>
                                 </constraints>
-                                <state key="normal" image="DarkGreen">
+                                <state key="normal" image="LightGreen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="default">
@@ -131,7 +131,7 @@
                                     <constraint firstAttribute="width" constant="29" id="p1w-3O-ma0"/>
                                     <constraint firstAttribute="height" constant="91" id="zv8-SW-TOI"/>
                                 </constraints>
-                                <state key="normal" image="LightGreen">
+                                <state key="normal" image="DarkGreen">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -144,7 +144,7 @@
                                     <constraint firstAttribute="width" constant="29" id="C4e-x9-qdQ"/>
                                     <constraint firstAttribute="height" constant="91" id="gTb-v7-YHL"/>
                                 </constraints>
-                                <state key="normal" image="Brown">
+                                <state key="normal" image="LightBlue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -157,7 +157,7 @@
                                     <constraint firstAttribute="width" constant="29" id="Eeu-ud-tGO"/>
                                     <constraint firstAttribute="height" constant="91" id="OFh-mN-ByI"/>
                                 </constraints>
-                                <state key="normal" image="DarkOrange">
+                                <state key="normal" image="Blue">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -170,7 +170,7 @@
                                     <constraint firstAttribute="height" constant="91" id="GAy-lq-yZm"/>
                                     <constraint firstAttribute="width" constant="29" id="rlJ-i0-pXK"/>
                                 </constraints>
-                                <state key="normal" image="Yellow">
+                                <state key="normal" image="Brown">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -487,16 +487,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Black" width="53" height="332"/>
-        <image name="Blue" width="53" height="332"/>
-        <image name="Brown" width="53" height="332"/>
-        <image name="DarkGreen" width="53" height="332"/>
-        <image name="DarkOrange" width="53" height="332"/>
-        <image name="Eraser" width="55" height="167"/>
-        <image name="Grey" width="53" height="332"/>
-        <image name="LightBlue" width="53" height="332"/>
-        <image name="LightGreen" width="53" height="332"/>
-        <image name="Red" width="53" height="332"/>
-        <image name="Yellow" width="53" height="332"/>
+        <image name="Black" width="58" height="200"/>
+        <image name="Blue" width="58" height="200"/>
+        <image name="Brown" width="58" height="200"/>
+        <image name="DarkGreen" width="58" height="200"/>
+        <image name="DarkOrange" width="58" height="200"/>
+        <image name="Eraser" width="58" height="200"/>
+        <image name="Grey" width="58" height="200"/>
+        <image name="LightBlue" width="58" height="200"/>
+        <image name="LightGreen" width="58" height="200"/>
+        <image name="Red" width="58" height="200"/>
+        <image name="Yellow" width="58" height="200"/>
     </resources>
 </document>
