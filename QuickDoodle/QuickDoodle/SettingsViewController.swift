@@ -48,11 +48,11 @@ class SettingsViewController: UIViewController {
         lineOpacitySlider.value = Float(lineOpacityFloat)
         lineOpacityLabel.text = NSString(format: "%.1f", lineOpacityFloat.native) as String
         redSlider.value = Float(redFloat * 255.0)
-        redLabel.text = NSString(format: "%d", Int(redSlider.value)) as String
+        redLabel.text = NSString(format: "R %d", Int(redSlider.value)) as String
         greenSlider.value = Float(greenFloat * 255.0)
-        greenLabel.text = NSString(format: "%d", Int(greenSlider.value)) as String
+        greenLabel.text = NSString(format: "G %d", Int(greenSlider.value)) as String
         blueSlider.value = Float(blueFloat * 255.0)
-        blueLabel.text = NSString(format: "%d", Int(blueSlider.value)) as String
+        blueLabel.text = NSString(format: "B %d", Int(blueSlider.value)) as String
         
         drawLinePreview()
     }

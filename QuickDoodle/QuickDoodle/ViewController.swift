@@ -29,6 +29,8 @@ class ViewController: UIViewController {
     
     //Create and set vars for line
     var lastPoint = CGPoint.zero
+    var pointsArray = [CGPoint]()
+    var drawnPath = UIBezierPath()
     var redFloat: CGFloat = 0.0
     var greenFloat: CGFloat = 0.0
     var blueFloat: CGFloat = 0.0
@@ -54,20 +56,20 @@ class ViewController: UIViewController {
         (105.0/255.0, 105.0/255.0, 105.0/255.0),
         //Red
         (1.0, 0, 0),
-        //Blue
-        (0, 0, 1.0),
-        //Light Blue
-        (51.0/255.0, 204.0/255.0, 1.0),
-        //Green
-        (0, 150.0/255.0, 0),
-        //Yellow-green
-        (102.0/255.0, 1.0, 0),
-        //Brown
-        (160.0/255.0, 82.0/255.0, 45.0/255.0),
         //Orange
         (1.0, 102.0/255.0, 0),
         //Yellow
         (1.0, 1.0, 0),
+        //Yellow-green
+        (102.0/255.0, 1.0, 0),
+        //Green
+        (0, 150.0/255.0, 0),
+        //Light Blue
+        (51.0/255.0, 204.0/255.0, 1.0),
+        //Blue
+        (0, 0, 1.0),
+        //Brown
+        (109.0/255.0, 82.0/255.0, 23.0/255.0),
         //White (eraser)
         (1.0, 1.0, 1.0)
     ]
@@ -78,6 +80,7 @@ class ViewController: UIViewController {
         hasMoved = false
         if let touch = touches.first {
             lastPoint = touch.locationInView(self.view)
+            pointsArray.append(lastPoint)
         }
     }
     
@@ -87,6 +90,7 @@ class ViewController: UIViewController {
         hasMoved = true
         if let touch = touches.first {
             let currentPoint = touch.locationInView(view)
+            pointsArray.append(currentPoint)
             drawLineFromPoint(lastPoint, toPoint: currentPoint)
             
             //Update lastPoint with current postion
@@ -111,6 +115,12 @@ class ViewController: UIViewController {
         //End context and nil out temp image
         UIGraphicsEndImageContext()
         tempImageView.image = nil
+        pointsArray.removeAll()
+    }
+    
+    //Get center point for bezier curve
+    func getMidPointFromA(a: CGPoint, andB b: CGPoint) -> CGPoint {
+        return CGPoint(x: (a.x + b.x) / 2, y: (a.y + b.y) / 2)
     }
     
     //Draw line from one point to the other
@@ -118,10 +128,17 @@ class ViewController: UIViewController {
         //Get current context and start drawing line in tempImageView
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        //Set anti-aliasing
+//        CGContextSetAllowsAntialiasing(context, true)
+//        CGContextSetShouldAntialias(context, true)
         
-        CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        //Clear out drawn path
+        drawnPath.removeAllPoints()
+        
+//        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+//        CGContextMoveToPoint(context, startPoint.x, startPoint.y)
+//        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
         
         //Set drawing parameters
         CGContextSetLineCap(context, CGLineCap.Round)
@@ -129,7 +146,31 @@ class ViewController: UIViewController {
         CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
         CGContextSetBlendMode(context, CGBlendMode.Normal)
         //Draw path
-        CGContextStrokePath(context)
+        //CGContextStrokePath(context)
+        
+        drawnPath.lineCapStyle = CGLineCap.Round
+        drawnPath.lineJoinStyle = CGLineJoin.Round
+        drawnPath.lineWidth = lineWidthFloat
+        
+        if !pointsArray.isEmpty && pointsArray.count != 1 {
+            drawnPath.moveToPoint(pointsArray.first!)
+            drawnPath.addLineToPoint(getMidPointFromA(pointsArray.first!, andB: pointsArray[1]))
+            
+            // Iterate through the remaining touch points except last
+            for idx in 1..<pointsArray.count - 1 {
+                let midPoint = getMidPointFromA(pointsArray[idx], andB: pointsArray[idx + 1])
+                drawnPath.addQuadCurveToPoint(midPoint, controlPoint: pointsArray[idx])
+            }
+            //Add final point to finish line
+            drawnPath.addLineToPoint(pointsArray.last!)
+            //Draw path
+            drawnPath.stroke()
+        } else {
+            //Array equals 1, meaning user only tapped. Draw a single point
+            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
+            CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+            CGContextStrokePath(context)
+        }
         
         //Wrap up context and render line into tempImageView
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -146,7 +187,27 @@ class ViewController: UIViewController {
         mainImageView.image = nil
     }
     
+    //Share image via any applicable app on device (facebook, email, etc). Also can save to device
     @IBAction func share(sender: AnyObject) {
+        //Grab context and main image view
+        UIGraphicsBeginImageContext(mainImageView.bounds.size)
+        mainImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: mainImageView.frame.size.width, height: mainImageView.frame.size.height))
+        
+        //Grab image and end context
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //Share
+        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+        
+        //if iPhone
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.Phone {
+            self.presentViewController(activity, animated: true, completion: nil)
+        } else {
+            //is iPad, create popover
+            let popOver: UIPopoverController = UIPopoverController(contentViewController: activity)
+            popOver.presentPopoverFromRect(CGRectMake(self.view.frame.size.width / 2, self.view.frame.size.height / 4, 0, 0), inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
     }
     
     //Color selected, set line RGB
@@ -167,6 +228,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Pass current settings (color, line width, and opacity) to settings
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let settingsViewController = segue.destinationViewController as! SettingsViewController
         settingsViewController.delegate = self
