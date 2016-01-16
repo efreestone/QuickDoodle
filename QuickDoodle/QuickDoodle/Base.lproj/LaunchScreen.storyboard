@@ -29,12 +29,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="aWw-Hm-HXe">
+                                <rect key="frame" x="150" y="190" width="300" height="221"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="UfE-VK-bU3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6tx-cY-Uwl"/>
                             <constraint firstItem="UfE-VK-bU3" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BoH-56-0KN"/>
+                            <constraint firstItem="aWw-Hm-HXe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="E7w-ni-zQK"/>
                             <constraint firstItem="UJD-vr-qWF" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="S7J-Lr-BjS"/>
+                            <constraint firstItem="aWw-Hm-HXe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="tzu-AA-TSl"/>
                             <constraint firstItem="UJD-vr-qWF" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ylR-Ua-7FX"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="UJD-vr-qWF" secondAttribute="bottom" constant="10" id="zcf-sD-CFS"/>
                         </constraints>
@@ -45,4 +50,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="300" height="221"/>
+    </resources>
 </document>
