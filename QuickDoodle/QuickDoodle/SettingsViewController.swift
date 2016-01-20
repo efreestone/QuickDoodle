@@ -111,6 +111,18 @@ class SettingsViewController: UIViewController {
         CGContextMoveToPoint(context, 45.0, 45.0)
         CGContextAddLineToPoint(context, 45.0, 45.0)
         CGContextStrokePath(context)
+        
+        let lightLightGray = UIColor (red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+//        let size = CGSize(width: 30, height: 30)
+        
+        if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
+//            CGContextSetShadow(context, CGSizeMake(0.0, 5.0), 2.0);
+            view.backgroundColor = lightLightGray
+        
+        } else {
+            view.backgroundColor = UIColor .whiteColor()
+        }
+        
         lineWidthImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -127,6 +139,16 @@ class SettingsViewController: UIViewController {
         lineOpacityImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
+    }
+    
+    func rgbIsWhite(redFlt: CGFloat, greenFlt: CGFloat, blueFlt: CGFloat) -> Bool {
+        if (redFlt == 1.0 && greenFlt == 1.0 && blueFlt == 1.0) {
+            print("Color is white")
+            return true
+        } else {
+            print("Color NOT white")
+            return false
+        }
     }
     
     /*

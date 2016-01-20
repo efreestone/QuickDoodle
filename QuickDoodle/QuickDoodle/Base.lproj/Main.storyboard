@@ -402,6 +402,9 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0d-nS-qr3">
+                                <rect key="frame" x="34" y="419" width="22" height="22"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -429,11 +432,13 @@
                             <constraint firstItem="3xs-hQ-Gau" firstAttribute="width" secondItem="sHG-wb-pO4" secondAttribute="width" id="QSk-hO-eIy"/>
                             <constraint firstAttribute="trailing" secondItem="2tg-kR-MBX" secondAttribute="trailing" constant="20" symbolic="YES" id="QVO-mL-AZt"/>
                             <constraint firstAttribute="trailing" secondItem="wG5-NG-XdT" secondAttribute="trailing" constant="20" symbolic="YES" id="RK2-oM-oSK"/>
+                            <constraint firstItem="r0d-nS-qr3" firstAttribute="centerX" secondItem="g9y-RE-r24" secondAttribute="centerX" id="Rah-ph-yIS"/>
                             <constraint firstItem="xds-Ud-ruA" firstAttribute="leading" secondItem="3bm-Do-1fP" secondAttribute="leading" id="UVi-5h-K9H"/>
                             <constraint firstItem="ULG-Fi-1Uz" firstAttribute="top" secondItem="xds-Ud-ruA" secondAttribute="bottom" constant="10" id="VXQ-H4-n9W"/>
                             <constraint firstItem="3xs-hQ-Gau" firstAttribute="top" secondItem="sHG-wb-pO4" secondAttribute="bottom" constant="8" symbolic="YES" id="XNi-rb-K7E"/>
                             <constraint firstAttribute="trailing" secondItem="pPl-Z0-VQz" secondAttribute="trailing" constant="20" symbolic="YES" id="b5N-EY-vdm"/>
                             <constraint firstItem="bDg-Rb-hUQ" firstAttribute="centerY" secondItem="xds-Ud-ruA" secondAttribute="centerY" id="cIc-W8-I9i"/>
+                            <constraint firstItem="r0d-nS-qr3" firstAttribute="centerY" secondItem="3xs-hQ-Gau" secondAttribute="centerY" id="csJ-JK-tF4"/>
                             <constraint firstItem="pPl-Z0-VQz" firstAttribute="leading" secondItem="3xs-hQ-Gau" secondAttribute="trailing" constant="8" symbolic="YES" id="daP-OF-Sh2"/>
                             <constraint firstItem="9gM-03-12U" firstAttribute="leading" secondItem="LtI-b2-k2k" secondAttribute="trailing" constant="8" symbolic="YES" id="dnv-my-ceT"/>
                             <constraint firstItem="g9y-RE-r24" firstAttribute="trailing" secondItem="LtI-b2-k2k" secondAttribute="trailing" constant="-15" id="eyG-fa-f5o"/>
