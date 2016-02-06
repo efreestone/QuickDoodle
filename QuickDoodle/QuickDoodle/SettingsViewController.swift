@@ -112,7 +112,7 @@ class SettingsViewController: UIViewController {
         CGContextAddLineToPoint(context, 45.0, 45.0)
         CGContextStrokePath(context)
         
-        let lightLightGray = UIColor (red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
+        let lightLightGray = UIColor (red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
 //        let size = CGSize(width: 30, height: 30)
         
         if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
@@ -141,12 +141,13 @@ class SettingsViewController: UIViewController {
         UIGraphicsEndImageContext()
     }
     
+    //Check if color is white (eraser) and return bool. Used to change background to light light gray if true
     func rgbIsWhite(redFlt: CGFloat, greenFlt: CGFloat, blueFlt: CGFloat) -> Bool {
         if (redFlt == 1.0 && greenFlt == 1.0 && blueFlt == 1.0) {
             print("Color is white")
             return true
         } else {
-            print("Color NOT white")
+            //print("Color NOT white")
             return false
         }
     }
