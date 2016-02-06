@@ -68,8 +68,8 @@ class ViewController: UIViewController {
         (51.0/255.0, 204.0/255.0, 1.0),
         //Blue
         (0, 0, 1.0),
-        //Brown
-        (109.0/255.0, 82.0/255.0, 23.0/255.0),
+        //Purple
+        (145.0/255.0, 0, 1.0),
         //White (eraser)
         (1.0, 1.0, 1.0)
     ]
