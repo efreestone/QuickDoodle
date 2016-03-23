@@ -82,6 +82,10 @@ class ViewController: UIViewController {
             lastPoint = touch.locationInView(self.view)
             pointsArray.append(lastPoint)
         }
+        
+        let touchPoint = touches.first
+        let touchRadius: CGFloat? = touchPoint!.majorRadius
+        print("Radius = \(touchRadius); lower limit = \(touchRadius! - touchPoint!.majorRadiusTolerance); upper limit = \(touchRadius! + touchPoint!.majorRadiusTolerance)")
     }
     
     //Touch has moved, draw line
