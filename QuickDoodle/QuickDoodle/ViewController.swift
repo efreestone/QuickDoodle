@@ -37,6 +37,8 @@ class ViewController: UIViewController {
     var lineWidthFloat: CGFloat = 10.0
     var lineOpacityFloat: CGFloat = 1.0
     var hasMoved = false
+    var isPalm = false
+    var touchRadius: CGFloat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,9 +80,21 @@ class ViewController: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         //Set has moved to false first
         hasMoved = false
+        
+        //Grab touch point to check radius, ignore if larger (palm rejection)
+        let touchPoint = touches.first
+        touchRadius = touchPoint!.majorRadius
+        print("Radius = \(touchRadius); lower limit = \(touchRadius! - touchPoint!.majorRadiusTolerance); upper limit = \(touchRadius! + touchPoint!.majorRadiusTolerance)")
+        
+        isPalm = touchRadius > 35
+        
         if let touch = touches.first {
-            lastPoint = touch.locationInView(self.view)
-            pointsArray.append(lastPoint)
+            if isPalm {
+                print("Is Palm")
+            } else {
+                lastPoint = touch.locationInView(self.view)
+                pointsArray.append(lastPoint)
+            }
         }
     }
     
@@ -89,12 +103,16 @@ class ViewController: UIViewController {
         //Set hasMove to true for Drawing in progress
         hasMoved = true
         if let touch = touches.first {
-            let currentPoint = touch.locationInView(view)
-            pointsArray.append(currentPoint)
-            drawLineFromPoint(lastPoint, toPoint: currentPoint)
-            
-            //Update lastPoint with current postion
-            lastPoint = currentPoint
+            if isPalm {
+                //print("Is palm in touches moved")
+            } else {
+                let currentPoint = touch.locationInView(view)
+                pointsArray.append(currentPoint)
+                drawLineFromPoint(lastPoint, toPoint: currentPoint)
+                
+                //Update lastPoint with current postion
+                lastPoint = currentPoint
+            }
         }
     }
     
