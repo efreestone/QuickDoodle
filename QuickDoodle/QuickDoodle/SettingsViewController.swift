@@ -8,6 +8,17 @@
 
 import UIKit
 
+//Conform to RGBInfo Delegate to set color floats
+extension SettingsViewController: RGBInfoViewControllerDelegate {
+    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController) {
+        //Set RGB color
+        redFloat = rgbInfoViewController.redFloat
+        greenFloat = rgbInfoViewController.greenFloat
+        blueFloat = rgbInfoViewController.blueFloat
+    }
+}
+
+//Protocol for Settings Delegate to set line width and opacity
 protocol SettingsViewControllerDelegate: class {
     func settingsViewControllerFinished(settingsViewController: SettingsViewController)
 }
@@ -44,6 +55,9 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
+        
+        //Set sliders
         lineWidthSlider.value = Float(lineWidthFloat)
         lineWidthLabel.text = NSString(format: "%.1f", lineWidthFloat.native) as String
         lineOpacitySlider.value = Float(lineOpacityFloat)
@@ -153,14 +167,16 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        let infoViewController = segue.destinationViewController as! RGBInfoViewController
+        infoViewController.delegate = self
+        infoViewController.redFloat = redFloat
+        infoViewController.greenFloat = greenFloat
+        infoViewController.blueFloat = blueFloat
     }
-    */
     
 }

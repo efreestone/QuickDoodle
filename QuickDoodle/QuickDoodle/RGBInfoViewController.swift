@@ -8,10 +8,27 @@
 
 import UIKit
 
+//Protocol for RGBInfo Delegate to set color floats
+protocol RGBInfoViewControllerDelegate: class {
+    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController)
+}
+
 class RGBInfoViewController: UIViewController {
+    
+    var redFloat: CGFloat = 0.0
+    var greenFloat: CGFloat = 0.0
+    var blueFloat: CGFloat = 0.0
+    
+    weak var delegate: RGBInfoViewControllerDelegate?
+    
+    //var settingsViewController: SettingsViewController = UIApplication.sharedApplication().windows[0].rootViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        redFloat = 150.0 / 255
+        
+        print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
 
         // Do any additional setup after loading the view.
     }
@@ -21,15 +38,10 @@ class RGBInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //Close button clicked, dismiss view and notify delegate
+    @IBAction func close(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        self.delegate?.rgbInfoViewControllerFinished(self)
     }
-    */
-
+    
 }
