@@ -532,24 +532,74 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Eiz-E1-0Pi">
-                                <rect key="frame" x="35" y="95" width="530" height="490"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eiz-E1-0Pi">
+                                <rect key="frame" x="35" y="95" width="530" height="83"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">RGB (red, green, blue) allows you to created custom colors to draw with. Simply move the slider for each color to create something new. Selecting a color beofre moving to settins will set the sliders to thats colors RGB code. Some examples are (0, 0, 0) = Black, (255, 255, 255) = White, </string>
+                                <string key="text">RGB (red, green, blue) allows you to created custom colors to draw with. Simply move the slider for each color to create something new. Selecting a color before moving to settins will set the sliders to thats colors RGB code. An RGB code of (0, 0, 0) = Black &amp; (255, 255, 255) = White. Some examples are:</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qgs-VA-u16">
+                                <rect key="frame" x="200" y="188" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.62745098039215685" green="0.32156862745098036" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="UzA-ay-yGX"/>
+                                </constraints>
+                                <state key="normal" title="Brown (160, 82, 45)">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzq-kJ-rmR">
+                                <rect key="frame" x="200" y="233" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.87058823529411766" green="0.85098039215686272" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="gBT-lE-DEG"/>
+                                </constraints>
+                                <state key="normal" title="Sand (222, 217, 184)">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7P-gA-HZS">
+                                <rect key="frame" x="200" y="278" width="200" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.19607843137254902" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jiw-Fw-eEe"/>
+                                </constraints>
+                                <state key="normal" title="Hot Pink (255, 50, 255)">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymm-Vv-Cog">
+                                <rect key="frame" x="200" y="323" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.5490196078431373" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SUf-8Q-oiv"/>
+                                </constraints>
+                                <state key="normal" title="Dark Blue (0, 0, 140)">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Eiz-E1-0Pi" firstAttribute="leading" secondItem="VU4-w0-tNn" secondAttribute="leadingMargin" constant="15" id="410-4V-sBW"/>
+                            <constraint firstItem="E7P-gA-HZS" firstAttribute="centerX" secondItem="gzq-kJ-rmR" secondAttribute="centerX" id="43t-G5-Od8"/>
                             <constraint firstItem="Eiz-E1-0Pi" firstAttribute="trailing" secondItem="VU4-w0-tNn" secondAttribute="trailingMargin" constant="-15" id="6xg-g2-d8b"/>
+                            <constraint firstItem="Ymm-Vv-Cog" firstAttribute="centerX" secondItem="E7P-gA-HZS" secondAttribute="centerX" id="8o5-Ly-HwP"/>
                             <constraint firstItem="4rO-Rs-rrt" firstAttribute="width" secondItem="VU4-w0-tNn" secondAttribute="width" id="BdB-0a-MMk"/>
-                            <constraint firstItem="Gvg-PW-kEr" firstAttribute="top" secondItem="Eiz-E1-0Pi" secondAttribute="bottom" constant="15" id="Bt0-dr-0Ab"/>
+                            <constraint firstItem="Qgs-VA-u16" firstAttribute="centerX" secondItem="Eiz-E1-0Pi" secondAttribute="centerX" id="DGo-Q7-dm0"/>
                             <constraint firstItem="Eiz-E1-0Pi" firstAttribute="centerX" secondItem="VU4-w0-tNn" secondAttribute="centerX" id="E5a-W2-oJ0"/>
+                            <constraint firstItem="Ymm-Vv-Cog" firstAttribute="width" secondItem="E7P-gA-HZS" secondAttribute="width" id="EPj-y4-zUG"/>
+                            <constraint firstItem="E7P-gA-HZS" firstAttribute="top" secondItem="gzq-kJ-rmR" secondAttribute="bottom" constant="15" id="TAs-Pj-yqY"/>
+                            <constraint firstItem="gzq-kJ-rmR" firstAttribute="centerX" secondItem="Qgs-VA-u16" secondAttribute="centerX" id="ks6-2K-daZ"/>
+                            <constraint firstItem="Ymm-Vv-Cog" firstAttribute="top" secondItem="E7P-gA-HZS" secondAttribute="bottom" constant="15" id="lXP-lf-Fqk"/>
                             <constraint firstItem="4rO-Rs-rrt" firstAttribute="top" secondItem="E8p-J6-flz" secondAttribute="bottom" constant="-20" id="laK-p2-k3p"/>
                             <constraint firstItem="Eiz-E1-0Pi" firstAttribute="top" secondItem="E8p-J6-flz" secondAttribute="bottom" constant="75" id="neY-mB-Tcj"/>
+                            <constraint firstItem="Qgs-VA-u16" firstAttribute="top" secondItem="Eiz-E1-0Pi" secondAttribute="bottom" constant="10" id="ozk-bb-KX0"/>
                             <constraint firstItem="4rO-Rs-rrt" firstAttribute="centerX" secondItem="VU4-w0-tNn" secondAttribute="centerX" id="qa2-6r-jUz"/>
+                            <constraint firstItem="E7P-gA-HZS" firstAttribute="width" secondItem="gzq-kJ-rmR" secondAttribute="width" id="t8X-OT-EQ0"/>
+                            <constraint firstItem="gzq-kJ-rmR" firstAttribute="top" secondItem="Qgs-VA-u16" secondAttribute="bottom" constant="15" id="whf-DT-wOm"/>
+                            <constraint firstItem="gzq-kJ-rmR" firstAttribute="width" secondItem="Qgs-VA-u16" secondAttribute="width" id="zo8-yB-yP1"/>
                         </constraints>
                     </view>
                 </viewController>
