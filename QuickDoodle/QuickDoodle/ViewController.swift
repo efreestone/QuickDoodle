@@ -81,13 +81,6 @@ class ViewController: UIViewController {
         //Set has moved to false first
         hasMoved = false
         
-        //Grab touch point to check radius, ignore if larger (palm rejection)
-        let touchPoint = touches.first
-        touchRadius = touchPoint!.majorRadius
-        print("Radius = \(touchRadius); lower limit = \(touchRadius! - touchPoint!.majorRadiusTolerance); upper limit = \(touchRadius! + touchPoint!.majorRadiusTolerance)")
-        
-        isPalm = touchRadius > 35
-        
         if let touch = touches.first {
             lastPoint = touch.locationInView(self.view)
             pointsArray.append(lastPoint)
