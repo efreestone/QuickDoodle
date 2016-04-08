@@ -40,10 +40,8 @@ class RGBInfoViewController: UIViewController {
     
     //Color example button clicked, set RGB floats accordingly
     @IBAction func colorButtonClicked(sender: UIButton) {
-        let buttonClicked = sender
-        
         //Brown selected
-        if buttonClicked.tag == 1 {
+        if sender.tag == 1 {
             redFloat = 160.0 / 255
             greenFloat = 82.0 / 255
             blueFloat = 45.0 / 255
@@ -51,7 +49,7 @@ class RGBInfoViewController: UIViewController {
         }
         
         //Sand selected
-        if buttonClicked.tag == 2 {
+        if sender.tag == 2 {
             redFloat = 222.0 / 255
             greenFloat = 217.0 / 255
             blueFloat = 184.0 / 255
@@ -59,7 +57,7 @@ class RGBInfoViewController: UIViewController {
         }
         
         //Hot Pink selected
-        if buttonClicked.tag == 3 {
+        if sender.tag == 3 {
             redFloat = 1.0
             greenFloat = 50.0 / 255
             blueFloat = 1.0
@@ -67,7 +65,7 @@ class RGBInfoViewController: UIViewController {
         }
         
         //Dark Blue selected
-        if buttonClicked.tag == 4 {
+        if sender.tag == 4 {
             redFloat = 0.0
             greenFloat = 0.0
             blueFloat = 140.0 / 255
