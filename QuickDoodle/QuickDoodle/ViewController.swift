@@ -132,16 +132,11 @@ class ViewController: UIViewController {
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
         //Set anti-aliasing
-//        CGContextSetAllowsAntialiasing(context, true)
-//        CGContextSetShouldAntialias(context, true)
+        CGContextSetAllowsAntialiasing(context, true)
+        CGContextSetShouldAntialias(context, true)
         
         //Clear out drawn path
         drawnPath.removeAllPoints()
-        
-//        tempImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        
-//        CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-//        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
         
         //Set drawing parameters
         CGContextSetLineCap(context, CGLineCap.Round)

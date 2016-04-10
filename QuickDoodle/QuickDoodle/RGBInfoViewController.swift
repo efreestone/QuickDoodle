@@ -39,7 +39,7 @@ class RGBInfoViewController: UIViewController {
             redFloat = 160.0 / 255
             greenFloat = 82.0 / 255
             blueFloat = 45.0 / 255
-            print("Brown clicked")
+            //print("Brown clicked")
         }
         
         //Sand selected
@@ -47,7 +47,7 @@ class RGBInfoViewController: UIViewController {
             redFloat = 222.0 / 255
             greenFloat = 217.0 / 255
             blueFloat = 184.0 / 255
-            print("Sand clicked")
+            //print("Sand clicked")
         }
         
         //Hot Pink selected
@@ -55,7 +55,7 @@ class RGBInfoViewController: UIViewController {
             redFloat = 1.0
             greenFloat = 50.0 / 255
             blueFloat = 1.0
-            print("Hot Pink clicked")
+            //print("Hot Pink clicked")
         }
         
         //Dark Blue selected
@@ -63,7 +63,7 @@ class RGBInfoViewController: UIViewController {
             redFloat = 0.0
             greenFloat = 0.0
             blueFloat = 140.0 / 255
-            print("Dark Blue clicked")
+            //print("Dark Blue clicked")
         }
         
         //Gold selected
@@ -71,7 +71,7 @@ class RGBInfoViewController: UIViewController {
             redFloat = 1.0
             greenFloat = 215.0 / 255
             blueFloat = 0.0
-            print("Gold clicked")
+            //print("Gold clicked")
         }
         
         //Gold selected
@@ -79,11 +79,12 @@ class RGBInfoViewController: UIViewController {
             redFloat = 140.0 / 255
             greenFloat = 0.0
             blueFloat = 26.0 / 255
-            print("Burgundy clicked")
+            //print("Burgundy clicked")
         }
         
         //Close info window
         close(sender)
+        
         //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
     }
     
