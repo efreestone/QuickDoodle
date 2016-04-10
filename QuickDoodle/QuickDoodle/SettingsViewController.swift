@@ -18,7 +18,7 @@ extension SettingsViewController: RGBInfoViewControllerDelegate {
     }
 }
 
-//Protocol for Settings Delegate to set line width and opacity
+//Protocol for Settings Delegate to set sample colors
 protocol SettingsViewControllerDelegate: class {
     func settingsViewControllerFinished(settingsViewController: SettingsViewController)
 }
@@ -55,7 +55,7 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
+        //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
         
         //Set sliders
         lineWidthSlider.value = Float(lineWidthFloat)
@@ -122,18 +122,17 @@ class SettingsViewController: UIViewController {
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, lineWidthFloat)
         
+        //Set stroke (brush) image view circle
         CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
         CGContextMoveToPoint(context, 45.0, 45.0)
         CGContextAddLineToPoint(context, 45.0, 45.0)
         CGContextStrokePath(context)
         
         let lightLightGray = UIColor (red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
-//        let size = CGSize(width: 30, height: 30)
         
+        //Check if selected color is white, change background to light light gray if true
         if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
-//            CGContextSetShadow(context, CGSizeMake(0.0, 5.0), 2.0);
             view.backgroundColor = lightLightGray
-        
         } else {
             view.backgroundColor = UIColor .whiteColor()
         }
@@ -144,8 +143,9 @@ class SettingsViewController: UIViewController {
         UIGraphicsBeginImageContext(lineWidthImageView.frame.size)
         context = UIGraphicsGetCurrentContext()
         
+        //Create opacity image view circle
         CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, 20)
+        CGContextSetLineWidth(context, 50)
         CGContextMoveToPoint(context, 45.0, 45.0)
         CGContextAddLineToPoint(context, 45.0, 45.0)
         
@@ -172,11 +172,12 @@ class SettingsViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //Segue to rgb info screen. Used to set the delegate
         let infoViewController = segue.destinationViewController as! RGBInfoViewController
         infoViewController.delegate = self
-        infoViewController.redFloat = redFloat
-        infoViewController.greenFloat = greenFloat
-        infoViewController.blueFloat = blueFloat
+//        infoViewController.redFloat = redFloat
+//        infoViewController.greenFloat = greenFloat
+//        infoViewController.blueFloat = blueFloat
     }
     
 }

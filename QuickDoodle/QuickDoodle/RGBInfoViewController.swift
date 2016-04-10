@@ -20,15 +20,9 @@ class RGBInfoViewController: UIViewController {
     var blueFloat: CGFloat = 0.0
     
     weak var delegate: RGBInfoViewControllerDelegate?
-    
-    //var settingsViewController: SettingsViewController = UIApplication.sharedApplication().windows[0].rootViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        redFloat = 150.0 / 255
-        
-//        print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
 
         // Do any additional setup after loading the view.
     }
@@ -71,7 +65,26 @@ class RGBInfoViewController: UIViewController {
             blueFloat = 140.0 / 255
             print("Dark Blue clicked")
         }
-        print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
+        
+        //Gold selected
+        if sender.tag == 5 {
+            redFloat = 1.0
+            greenFloat = 215.0 / 255
+            blueFloat = 0.0
+            print("Gold clicked")
+        }
+        
+        //Gold selected
+        if sender.tag == 6 {
+            redFloat = 140.0 / 255
+            greenFloat = 0.0
+            blueFloat = 26.0 / 255
+            print("Burgundy clicked")
+        }
+        
+        //Close info window
+        close(sender)
+        //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
     }
     
     //Close button clicked, dismiss view and notify delegate
