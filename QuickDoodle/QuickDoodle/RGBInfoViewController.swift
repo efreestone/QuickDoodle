@@ -8,7 +8,18 @@
 
 import UIKit
 
+//Protocol for RGBInfo Delegate to set color floats
+protocol RGBInfoViewControllerDelegate: class {
+    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController)
+}
+
 class RGBInfoViewController: UIViewController {
+    
+    var redFloat: CGFloat = 0.0
+    var greenFloat: CGFloat = 0.0
+    var blueFloat: CGFloat = 0.0
+    
+    weak var delegate: RGBInfoViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +32,65 @@ class RGBInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //Color example button clicked, set RGB floats accordingly
+    @IBAction func colorButtonClicked(sender: UIButton) {
+        //Brown selected
+        if sender.tag == 1 {
+            redFloat = 160.0 / 255
+            greenFloat = 82.0 / 255
+            blueFloat = 45.0 / 255
+            print("Brown clicked")
+        }
+        
+        //Sand selected
+        if sender.tag == 2 {
+            redFloat = 222.0 / 255
+            greenFloat = 217.0 / 255
+            blueFloat = 184.0 / 255
+            print("Sand clicked")
+        }
+        
+        //Hot Pink selected
+        if sender.tag == 3 {
+            redFloat = 1.0
+            greenFloat = 50.0 / 255
+            blueFloat = 1.0
+            print("Hot Pink clicked")
+        }
+        
+        //Dark Blue selected
+        if sender.tag == 4 {
+            redFloat = 0.0
+            greenFloat = 0.0
+            blueFloat = 140.0 / 255
+            print("Dark Blue clicked")
+        }
+        
+        //Gold selected
+        if sender.tag == 5 {
+            redFloat = 1.0
+            greenFloat = 215.0 / 255
+            blueFloat = 0.0
+            print("Gold clicked")
+        }
+        
+        //Gold selected
+        if sender.tag == 6 {
+            redFloat = 140.0 / 255
+            greenFloat = 0.0
+            blueFloat = 26.0 / 255
+            print("Burgundy clicked")
+        }
+        
+        //Close info window
+        close(sender)
+        //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
     }
-    */
-
+    
+    //Close button clicked, dismiss view and notify delegate
+    @IBAction func close(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)
+        self.delegate?.rgbInfoViewControllerFinished(self)
+    }
+    
 }

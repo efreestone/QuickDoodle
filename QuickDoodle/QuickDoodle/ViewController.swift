@@ -81,20 +81,9 @@ class ViewController: UIViewController {
         //Set has moved to false first
         hasMoved = false
         
-        //Grab touch point to check radius, ignore if larger (palm rejection)
-        let touchPoint = touches.first
-        touchRadius = touchPoint!.majorRadius
-        print("Radius = \(touchRadius); lower limit = \(touchRadius! - touchPoint!.majorRadiusTolerance); upper limit = \(touchRadius! + touchPoint!.majorRadiusTolerance)")
-        
-        isPalm = touchRadius > 35
-        
         if let touch = touches.first {
-            if isPalm {
-                print("Is Palm")
-            } else {
-                lastPoint = touch.locationInView(self.view)
-                pointsArray.append(lastPoint)
-            }
+            lastPoint = touch.locationInView(self.view)
+            pointsArray.append(lastPoint)
         }
     }
     
@@ -103,16 +92,12 @@ class ViewController: UIViewController {
         //Set hasMove to true for Drawing in progress
         hasMoved = true
         if let touch = touches.first {
-            if isPalm {
-                //print("Is palm in touches moved")
-            } else {
-                let currentPoint = touch.locationInView(view)
-                pointsArray.append(currentPoint)
-                drawLineFromPoint(lastPoint, toPoint: currentPoint)
-                
-                //Update lastPoint with current postion
-                lastPoint = currentPoint
-            }
+            let currentPoint = touch.locationInView(view)
+            pointsArray.append(currentPoint)
+            drawLineFromPoint(lastPoint, toPoint: currentPoint)
+            
+            //Update lastPoint with current postion
+            lastPoint = currentPoint
         }
     }
     

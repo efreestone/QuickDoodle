@@ -8,6 +8,17 @@
 
 import UIKit
 
+//Conform to RGBInfo Delegate to set color floats
+extension SettingsViewController: RGBInfoViewControllerDelegate {
+    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController) {
+        //Set RGB color
+        redFloat = rgbInfoViewController.redFloat
+        greenFloat = rgbInfoViewController.greenFloat
+        blueFloat = rgbInfoViewController.blueFloat
+    }
+}
+
+//Protocol for Settings Delegate to set sample colors
 protocol SettingsViewControllerDelegate: class {
     func settingsViewControllerFinished(settingsViewController: SettingsViewController)
 }
@@ -44,6 +55,9 @@ class SettingsViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
+        
+        //Set sliders
         lineWidthSlider.value = Float(lineWidthFloat)
         lineWidthLabel.text = NSString(format: "%.1f", lineWidthFloat.native) as String
         lineOpacitySlider.value = Float(lineOpacityFloat)
@@ -108,18 +122,17 @@ class SettingsViewController: UIViewController {
         CGContextSetLineCap(context, CGLineCap.Round)
         CGContextSetLineWidth(context, lineWidthFloat)
         
+        //Set stroke (brush) image view circle
         CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
         CGContextMoveToPoint(context, 45.0, 45.0)
         CGContextAddLineToPoint(context, 45.0, 45.0)
         CGContextStrokePath(context)
         
         let lightLightGray = UIColor (red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
-//        let size = CGSize(width: 30, height: 30)
         
+        //Check if selected color is white, change background to light light gray if true
         if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
-//            CGContextSetShadow(context, CGSizeMake(0.0, 5.0), 2.0);
             view.backgroundColor = lightLightGray
-        
         } else {
             view.backgroundColor = UIColor .whiteColor()
         }
@@ -130,8 +143,9 @@ class SettingsViewController: UIViewController {
         UIGraphicsBeginImageContext(lineWidthImageView.frame.size)
         context = UIGraphicsGetCurrentContext()
         
+        //Create opacity image view circle
         CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, 20)
+        CGContextSetLineWidth(context, 50)
         CGContextMoveToPoint(context, 45.0, 45.0)
         CGContextAddLineToPoint(context, 45.0, 45.0)
         
@@ -153,14 +167,17 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+        //Segue to rgb info screen. Used to set the delegate
+        let infoViewController = segue.destinationViewController as! RGBInfoViewController
+        infoViewController.delegate = self
+//        infoViewController.redFloat = redFloat
+//        infoViewController.greenFloat = greenFloat
+//        infoViewController.blueFloat = blueFloat
     }
-    */
     
 }
