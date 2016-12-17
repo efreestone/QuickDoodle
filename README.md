@@ -3,4 +3,4 @@ Quick Doodle is a simple and straightforward drawing app for iOS, built with Swi
 	
 What are you waiting for? It’s time to start doodling with Quick Doodle!
 
-It can be found at itunes.apple.com/us/app/quick-doodle
+It can be found at https://itunes.apple.com/us/app/quick-doodle/
