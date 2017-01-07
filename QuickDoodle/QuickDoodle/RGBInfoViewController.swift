@@ -10,7 +10,7 @@ import UIKit
 
 //Protocol for RGBInfo Delegate to set color floats
 protocol RGBInfoViewControllerDelegate: class {
-    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController)
+    func rgbInfoViewControllerFinished(_ rgbInfoViewController: RGBInfoViewController)
 }
 
 class RGBInfoViewController: UIViewController {
@@ -33,7 +33,7 @@ class RGBInfoViewController: UIViewController {
     }
     
     //Color example button clicked, set RGB floats accordingly
-    @IBAction func colorButtonClicked(sender: UIButton) {
+    @IBAction func colorButtonClicked(_ sender: UIButton) {
         //Brown selected
         if sender.tag == 1 {
             redFloat = 160.0 / 255
@@ -89,8 +89,8 @@ class RGBInfoViewController: UIViewController {
     }
     
     //Close button clicked, dismiss view and notify delegate
-    @IBAction func close(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
         self.delegate?.rgbInfoViewControllerFinished(self)
     }
     

@@ -10,7 +10,7 @@ import UIKit
 
 //Conform to RGBInfo Delegate to set color floats
 extension SettingsViewController: RGBInfoViewControllerDelegate {
-    func rgbInfoViewControllerFinished(rgbInfoViewController: RGBInfoViewController) {
+    func rgbInfoViewControllerFinished(_ rgbInfoViewController: RGBInfoViewController) {
         //Set RGB color
         redFloat = rgbInfoViewController.redFloat
         greenFloat = rgbInfoViewController.greenFloat
@@ -20,7 +20,7 @@ extension SettingsViewController: RGBInfoViewControllerDelegate {
 
 //Protocol for Settings Delegate to set sample colors
 protocol SettingsViewControllerDelegate: class {
-    func settingsViewControllerFinished(settingsViewController: SettingsViewController)
+    func settingsViewControllerFinished(_ settingsViewController: SettingsViewController)
 }
 
 class SettingsViewController: UIViewController {
@@ -52,7 +52,7 @@ class SettingsViewController: UIViewController {
     var greenFloat: CGFloat = 0.0
     var blueFloat: CGFloat = 0.0
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         //print("Red = \(redFloat * 255),\nGreen = \(greenFloat * 255),\nBlue = \(blueFloat * 255)")
@@ -85,12 +85,12 @@ class SettingsViewController: UIViewController {
     }
     
     //Close button clicked, dismiss view and notify delegate
-    @IBAction func close(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func close(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
         self.delegate?.settingsViewControllerFinished(self)
     }
     
-    @IBAction func colorChanged(sender: UISlider) {
+    @IBAction func colorChanged(_ sender: UISlider) {
         redFloat = CGFloat(redSlider.value / 255)
         redLabel.text = NSString(format: "R %d", Int(redSlider.value)) as String
         greenFloat = CGFloat(greenSlider.value / 255)
@@ -102,7 +102,7 @@ class SettingsViewController: UIViewController {
     }
     
     //Slider moved, grab value
-    @IBAction func sliderChanged(sender: UISlider) {
+    @IBAction func sliderChanged(_ sender: UISlider) {
         if sender == lineWidthSlider {
             lineWidthFloat = CGFloat(sender.value)
             lineWidthLabel.text = NSString(format: "%.1f", lineWidthFloat.native) as String
@@ -119,14 +119,14 @@ class SettingsViewController: UIViewController {
         UIGraphicsBeginImageContext(lineWidthImageView.frame.size)
         var context = UIGraphicsGetCurrentContext()
         
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, lineWidthFloat)
+        context?.setLineCap(CGLineCap.round)
+        context?.setLineWidth(lineWidthFloat)
         
         //Set stroke (brush) image view circle
-        CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, 1.0)
-        CGContextMoveToPoint(context, 45.0, 45.0)
-        CGContextAddLineToPoint(context, 45.0, 45.0)
-        CGContextStrokePath(context)
+        context?.setStrokeColor(red: redFloat, green: greenFloat, blue: blueFloat, alpha: 1.0)
+        context?.move(to: CGPoint(x: 45.0, y: 45.0))
+        context?.addLine(to: CGPoint(x: 45.0, y: 45.0))
+        context?.strokePath()
         
         let lightLightGray = UIColor (red: 0.949, green: 0.949, blue: 0.949, alpha: 1.0)
         
@@ -134,7 +134,7 @@ class SettingsViewController: UIViewController {
         if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
             view.backgroundColor = lightLightGray
         } else {
-            view.backgroundColor = UIColor .whiteColor()
+            view.backgroundColor = UIColor.white
         }
         
         lineWidthImageView.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -144,20 +144,20 @@ class SettingsViewController: UIViewController {
         context = UIGraphicsGetCurrentContext()
         
         //Create opacity image view circle
-        CGContextSetLineCap(context, CGLineCap.Round)
-        CGContextSetLineWidth(context, 50)
-        CGContextMoveToPoint(context, 45.0, 45.0)
-        CGContextAddLineToPoint(context, 45.0, 45.0)
+        context?.setLineCap(CGLineCap.round)
+        context?.setLineWidth(50)
+        context?.move(to: CGPoint(x: 45.0, y: 45.0))
+        context?.addLine(to: CGPoint(x: 45.0, y: 45.0))
         
-        CGContextSetRGBStrokeColor(context, redFloat, greenFloat, blueFloat, lineOpacityFloat)
-        CGContextStrokePath(context)
+        context?.setStrokeColor(red: redFloat, green: greenFloat, blue: blueFloat, alpha: lineOpacityFloat)
+        context?.strokePath()
         lineOpacityImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         
         UIGraphicsEndImageContext()
     }
     
     //Check if color is white (eraser) and return bool. Used to change background to light light gray if true
-    func rgbIsWhite(redFlt: CGFloat, greenFlt: CGFloat, blueFlt: CGFloat) -> Bool {
+    func rgbIsWhite(_ redFlt: CGFloat, greenFlt: CGFloat, blueFlt: CGFloat) -> Bool {
         if (redFlt == 1.0 && greenFlt == 1.0 && blueFlt == 1.0) {
             print("Color is white")
             return true
@@ -171,9 +171,9 @@ class SettingsViewController: UIViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Segue to rgb info screen. Used to set the delegate
-        let infoViewController = segue.destinationViewController as! RGBInfoViewController
+        let infoViewController = segue.destination as! RGBInfoViewController
         infoViewController.delegate = self
 //        infoViewController.redFloat = redFloat
 //        infoViewController.greenFloat = greenFloat
