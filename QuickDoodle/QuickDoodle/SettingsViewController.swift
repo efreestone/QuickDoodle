@@ -175,9 +175,9 @@ class SettingsViewController: UIViewController {
         //Segue to rgb info screen. Used to set the delegate
         let infoViewController = segue.destination as! RGBInfoViewController
         infoViewController.delegate = self
-//        infoViewController.redFloat = redFloat
-//        infoViewController.greenFloat = greenFloat
-//        infoViewController.blueFloat = blueFloat
+        infoViewController.redFloat = redFloat
+        infoViewController.greenFloat = greenFloat
+        infoViewController.blueFloat = blueFloat
     }
     
 }
