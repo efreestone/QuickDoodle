@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //Set orientation based on device. iPhone is portrait and iPad is landscape. This is to stop orientation changes from stretching or morphing the user artwork
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-        print("Orientation")
         //Device is iPhone
         if UIDevice.current.userInterfaceIdiom == .phone {
             UIApplication.shared.setStatusBarOrientation(.portrait, animated: false);
