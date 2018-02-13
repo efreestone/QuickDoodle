@@ -137,6 +137,7 @@ class SettingsViewController: UIViewController {
             lineOpacitySlider.backgroundColor = lightLightGray
         } else {
             view.backgroundColor = UIColor.white
+            lineOpacitySlider.backgroundColor = UIColor.white
         }
         
         lineWidthImageView.image = UIGraphicsGetImageFromCurrentImageContext()
