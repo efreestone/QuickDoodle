@@ -23,10 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         //Device is iPhone
         if UIDevice.current.userInterfaceIdiom == .phone {
-            UIApplication.shared.setStatusBarOrientation(.portrait, animated: false);
+            //UIApplication.shared.setStatusBarOrientation(.portrait, animated: false);
             return UIInterfaceOrientationMask.portrait;
         } else {
-            UIApplication.shared.setStatusBarOrientation(.landscapeLeft, animated: false);
+            //UIApplication.shared.setStatusBarOrientation(.landscapeLeft, animated: false);
             return UIInterfaceOrientationMask.landscape;
         }
     }
