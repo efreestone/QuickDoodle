@@ -203,9 +203,25 @@ class ViewController: UIViewController {
             self.present(activity, animated: true, completion: nil)
         } else {
             //is iPad, create popover
-            let popOver: UIPopoverController = UIPopoverController(contentViewController: activity)
-            popOver.present(from: CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+//            let popOver: UIPopoverController = UIPopoverController(contentViewController: activity)
+//            popOver.present(from: CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0), in: self.view, permittedArrowDirections: UIPopoverArrowDirection.any, animated: true)
+            
+            if let popoverController = activity.popoverPresentationController {
+                popoverController.sourceView = self.view
+                popoverController.sourceRect = CGRect(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 4, width: 0, height: 0)
+                popoverController.permittedArrowDirections = []
+                print("ipad popover IF")
+            }
+            
+            self.present(activity, animated: true, completion: nil)
+            
+            //let popOver: UIPopoverPresentationController = UIPopoverPresentationController.con
+//            activity.popoverPresentationController.sourceView = self.view;
+//            //        activityViewController.popoverPresentationController.sourceRect = self.frame;
+//            [self presentViewController:activity animated:YES completion:nil];
         }
+        
+        //self.present(activity, animated: true, completion: nil)
     }
     
     //Color selected, set line RGB

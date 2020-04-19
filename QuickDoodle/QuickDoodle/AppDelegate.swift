@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
@@ -23,10 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         //Device is iPhone
         if UIDevice.current.userInterfaceIdiom == .phone {
-            UIApplication.shared.setStatusBarOrientation(.portrait, animated: false);
+            //UIApplication.shared.setStatusBarOrientation(.portrait, animated: false);
             return UIInterfaceOrientationMask.portrait;
         } else {
-            UIApplication.shared.setStatusBarOrientation(.landscapeLeft, animated: false);
+            //UIApplication.shared.setStatusBarOrientation(.landscapeLeft, animated: false);
             return UIInterfaceOrientationMask.landscape;
         }
     }

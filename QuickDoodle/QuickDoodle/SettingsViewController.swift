@@ -133,8 +133,11 @@ class SettingsViewController: UIViewController {
         //Check if selected color is white, change background to light light gray if true
         if (rgbIsWhite(redFloat, greenFlt: greenFloat, blueFlt: blueFloat)) {
             view.backgroundColor = lightLightGray
+            //Apply gray to Opacity slider BG if color is white. Unsure why this is the only slider impacted when the background is changed
+            lineOpacitySlider.backgroundColor = lightLightGray
         } else {
             view.backgroundColor = UIColor.white
+            lineOpacitySlider.backgroundColor = UIColor.white
         }
         
         lineWidthImageView.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -170,7 +173,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Segue to rgb info screen. Used to set the delegate
         let infoViewController = segue.destination as! RGBInfoViewController
